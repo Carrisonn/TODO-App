@@ -1,0 +1,201 @@
+/** Global styles **/
+:root {
+  --fontBold: 700;
+  --fontExtraBold: 900;
+  --font-size-p: 1.8rem;
+  --font-size-subtitle: 2.6rem;
+
+  --bodyColor: hsl(0, 0%, 95%);
+  --formColor: hsl(0, 0%, 90%);
+
+  --primaryColor: hsl(258, 100%, 50%);
+  --whiteColor: hsl(0, 0%, 100%);
+
+  --successNotification: hsl(120, 100%, 35%);
+  --errorNotification: hsl(0, 100%, 50%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* 1rem = 10px */
+}
+
+*,
+*:before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100%;
+  background-color: var(--bodyColor);
+  width: min(90%, 120rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-size: var(--font-size-subtitle);
+}
+
+.div-tasks {
+  background-color: var(--formColor);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.no-tasks-p {
+  font-size: var(--font-size-p);
+  margin: 0;
+}
+
+.primary-color {
+  color: var(--primaryColor);
+}
+
+.notification {
+  padding: 1rem;
+  border-radius: .5rem;
+  color: var(--whiteColor);
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: var(--fontBold);
+  text-transform: uppercase;
+  animation: opacity .3s;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.green-notification {
+  background-color: var(--successNotification);
+}
+
+.red-notification {
+  background-color: var(--errorNotification);
+}
+
+/** Styles Main **/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.title {
+  font-size: 3.4rem;
+  margin-bottom: 0;
+  text-decoration: underline;
+  font-weight: var(--fontExtraBold);
+}
+
+.description {
+  font-size: 2.4rem;
+  font-weight: var(--fontBold);
+  margin: 1rem 0 3rem 0;
+}
+
+/** Styles Form **/
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form input {
+  padding: 1.5rem;
+  width: 100%;
+  border: none;
+  border-radius: .5rem;
+  font-size: var(--font-size-p);
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.btn-add-tasks {
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: .5rem;
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  font-size: 1.6rem;
+  font-weight: var(--fontBold);
+  text-transform: uppercase;
+}
+
+.btn-add-tasks:hover {
+  background-color: hsl(258, 100%, 35%);
+}
+
+/** Styles Tasks **/
+#div-user-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.div-show-tasks {
+  background-color: hsl(155, 100%, 90%);
+  border: 1px solid hsl(155, 100%, 25%);
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-task {
+  font-size: var(--font-size-p);
+  padding: 2rem;
+  font-weight: var(--fontBold);
+  margin: 0;
+}
+
+.div-btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.btn-task {
+  padding: 1rem;
+  border: none;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  font-size: var(--font-size-p);
+  color: var(--whiteColor);
+  font-weight: var(--fontBold);
+  cursor: pointer;
+}
+
+.edit-task {
+  background-color: var(--primaryColor);
+}
+
+.edit-task:hover {
+  background-color: hsl(258, 100%, 35%);
+}
+
+.delete-task {
+  background-color: var(--errorNotification);
+}
+
+.delete-task:hover {
+  background-color: hsl(0, 100%, 35%);
+}

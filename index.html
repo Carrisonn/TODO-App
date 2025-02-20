@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TODO App - Lista y administra tus tareas" />
+  <link rel="icon" href="/src/icons/todo-icon.svg" type="image/svg">
+  <title>TODO App - Carrison</title>
+  <link rel="preload" href="/src/css/styles.css" as="style">
+  <link rel="stylesheet" href="/src/css/styles.css">
+</head>
+
+<body>
+  <main>
+    <h1 class="title">TODO <span class="primary-color ">App</span></h1>
+    <p class="description">Administra tus tareas</p>
+
+    <div class="container">
+      <div class="div-tasks">
+        <h2 class="subtitle">Añade <span class="primary-color ">tareas</span> aquí</h2>
+        <form id="form" class="form">
+          <input type="text" id="input-task" placeholder="Sacar a mi perro...">
+          <button id="btn-add-tasks" class="btn-add-tasks" type="submit">Añadir</button>
+        </form>
+      </div>
+
+      <div class="div-tasks">
+        <h2 class="subtitle"><span class="primary-color ">Lista</span> de tareas</h2>
+        <div id="div-user-tasks">
+          <p class="no-tasks-p">No tienes tareas</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
