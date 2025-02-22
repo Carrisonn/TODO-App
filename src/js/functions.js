@@ -40,17 +40,10 @@ function addUserTaskToHTML() {
   });
 };
 
-export function updateTaskObj(taskObj) {
-  Object.assign(tasksObj, taskObj);
-  inputTask.value = taskObj.task;
-  btnAddTasks.textContent = 'Guardar Cambios';
-  editTask = true;
-};
-
 function editUserTaskToHTML() {
   adminTasksInstance.editTask({ ...tasksObj });
   new Notification({
-    text: 'Guardado Correctamente',
+    text: 'Tarea Actualizada Correctamente',
     type: 'success'
   })
 
@@ -63,6 +56,12 @@ function editUserTaskToHTML() {
   btnAddTasks.textContent = 'Añadir';
 };
 
+export function updateTaskObj(cloneObj) {
+  Object.assign(tasksObj, cloneObj);
+  inputTask.value = cloneObj.task;
+  btnAddTasks.textContent = 'Guardar Cambios';
+  editTask = true;
+};
 
 export function generateId() {
   const generateID = new Date().getTime();
