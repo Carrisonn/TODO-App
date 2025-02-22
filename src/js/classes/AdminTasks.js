@@ -13,7 +13,7 @@ export class AdminTasks {
 
   editTask(updatedTask) {
     this.tasks = this.tasks.map(task => task.id === updatedTask.id ? updatedTask : task);
-    this.renderTasks()
+    this.renderTasks();
   }
 
   deleteTask(id) {
@@ -27,7 +27,7 @@ export class AdminTasks {
     }
 
     if (this.tasks.length === 0) {
-      divUserTasks.innerHTML = '<p class="no-tasks-p">No tienes tareas</p>';
+      divUserTasks.innerHTML = '<p class="no-tasks-p">Sin tareas pendientes</p>';
       return;
     }
 
@@ -37,9 +37,10 @@ export class AdminTasks {
       const divShowTasks = document.createElement('div'); // Main Container
       divShowTasks.classList.add('div-show-tasks');
 
+      const formattedTask = task.replace(/^\w/, character => character.toUpperCase());
       const userTask = document.createElement('p');
       userTask.classList.add('user-task');
-      userTask.textContent = task;
+      userTask.innerHTML = `Pendiente: <span class="primary-color user-task-span">${formattedTask}</span>`;
 
       const userDivBtns = document.createElement('div'); // Buttons Container
       userDivBtns.classList.add('div-btns');
@@ -64,4 +65,4 @@ export class AdminTasks {
       divUserTasks.appendChild(divShowTasks); // Add main container to the html static container
     })
   }
-}
+};
