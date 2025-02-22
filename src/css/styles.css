@@ -29,11 +29,17 @@ html {
 
 body {
   font-family: system-ui, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
-  min-height: 100%;
+  height: 100dvh;
   background-color: var(--bodyColor);
-  width: min(90%, 120rem);
-  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
   text-align: center;
+}
+
+main {
+  margin: 0 auto;
+  width: min(90%, 120rem);
+  margin-bottom: 5rem;
 }
 
 .subtitle {
@@ -113,7 +119,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .form input {
@@ -152,7 +158,7 @@ body {
 }
 
 .div-show-tasks {
-  background-color: hsl(155, 100%, 90%);
+  background-color: hsl(155, 100%, 95%);
   border: 1px solid hsl(155, 100%, 25%);
   border-radius: .5rem;
   display: flex;
@@ -162,8 +168,11 @@ body {
 .user-task {
   font-size: var(--font-size-p);
   padding: 2rem;
-  font-weight: var(--fontBold);
   margin: 0;
+}
+
+.user-task-span {
+  font-weight: var(--fontBold);
 }
 
 .div-btns {
@@ -198,4 +207,38 @@ body {
 
 .delete-task:hover {
   background-color: hsl(0, 100%, 35%);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-p);
+  font-weight: var(--fontBold);
+  height: 10rem;
+  color: var(--whiteColor);
+  background: linear-gradient(to top, var(--primaryColor) 0%, var(--bodyColor) 100%);
+}
+
+.footer-link {
+  color: var(--whiteColor);
+  border-bottom: 1px solid var(--whiteColor);
+  text-decoration: none;
+  transition: .3s ease-in-out;
+  margin-left: .5rem;
+}
+
+.footer-link:hover {
+  transform: translateY(-5px);
+  border: none;
+}
+
+/** PC Screen **/
+@media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 3rem;
+  }
 }
