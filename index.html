@@ -4,9 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html">
   <meta name="description" content="TODO App - Lista y administra tus tareas" />
   <link rel="icon" href="/src/icons/todo-icon.svg" type="image/svg">
   <title>TODO App - Carrison</title>
+  <link rel="preload" href="/src/css/normalize.css" as="style">
+  <link rel="stylesheet" href="/src/css/normalize.css">
   <link rel="preload" href="/src/css/styles.css" as="style">
   <link rel="stylesheet" href="/src/css/styles.css">
 </head>
@@ -28,11 +31,15 @@
       <div class="div-tasks">
         <h2 class="subtitle"><span class="primary-color ">Lista</span> de tareas</h2>
         <div id="div-user-tasks">
-          <p class="no-tasks-p">No tienes tareas</p>
+          <p class="no-tasks-p">Sin tareas pendientes</p>
         </div>
       </div>
     </div>
   </main>
+
+  <footer>
+    <p>Made with ❤️ by </p><a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>
+  </footer>
   <script type="module" src="/src/js/main.js"></script>
 </body>
 
