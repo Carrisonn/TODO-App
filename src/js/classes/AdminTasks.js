@@ -26,10 +26,7 @@ export class AdminTasks {
       divUserTasks.removeChild(divUserTasks.firstChild);
     }
 
-    if (this.tasks.length === 0) {
-      divUserTasks.innerHTML = '<p class="no-tasks-p">Sin tareas pendientes</p>';
-      return;
-    }
+    if (this.tasks.length === 0) return divUserTasks.innerHTML = '<p class="no-tasks-p">Sin tareas pendientes</p>';
 
     this.tasks.forEach(taskObj => {
       const { id, task } = taskObj;
