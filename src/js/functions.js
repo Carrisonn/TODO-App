@@ -12,13 +12,7 @@ export function valueToObject(event) {
 export function submitForm(event) {
   event.preventDefault();
 
-  if (tasksObj.task === '') {
-    new Notification({
-      text: 'El campo no puede estar vacío',
-      type: 'error'
-    });
-    return;
-  }
+  if (tasksObj.task === '') return new Notification({ text: 'El campo no puede estar vacío', type: 'error' });
 
   editTask ? editUserTaskToHTML() : addUserTaskToHTML();
 
@@ -28,10 +22,7 @@ export function submitForm(event) {
 
 function addUserTaskToHTML() {
   adminTasksInstance.addTask({ ...tasksObj });
-  new Notification({
-    text: '¡Tarea añadida!',
-    type: 'success'
-  });
+  new Notification({ text: '¡Tarea añadida!', type: 'success' });
 
   // Reset the object to prevent the user to add the same task multiple times
   Object.assign(tasksObj, {
@@ -42,10 +33,7 @@ function addUserTaskToHTML() {
 
 function editUserTaskToHTML() {
   adminTasksInstance.editTask({ ...tasksObj });
-  new Notification({
-    text: 'Tarea Actualizada Correctamente',
-    type: 'success'
-  })
+  new Notification({ text: 'Tarea Actualizada Correctamente', type: 'success' });
 
   // Reset the object to prevent the user to update the same task multiple times
   Object.assign(tasksObj, {
