@@ -7,10 +7,12 @@ export const btnAddTasks = document.querySelector('#btn-add-tasks');
 export const form = document.querySelector('#form');
 export const divUserTasks = document.querySelector('#div-user-tasks');
 
-inputTask.addEventListener('input', valueToObject);
-form.addEventListener('submit', submitForm);
+document.addEventListener('DOMContentLoaded', () => {
+  inputTask.addEventListener('input', valueToObject);
+  form.addEventListener('submit', submitForm);
+});
 
 export const tasksObj = {
   id: generateId(),
   task: ''
-}
+};
