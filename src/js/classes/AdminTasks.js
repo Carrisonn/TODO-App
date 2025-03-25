@@ -1,3 +1,4 @@
+import { Notification } from './Notification.js';
 import { divUserTasks } from '../main.js';
 import { updateTaskObj } from '../functions.js';
 
@@ -18,6 +19,7 @@ export class AdminTasks {
 
   deleteTask(id) {
     this.tasks = this.tasks.filter(task => task.id !== id);
+    new Notification({ text: 'Tarea eliminada correctamente', type: 'success' });
     this.renderTasks();
   }
 
