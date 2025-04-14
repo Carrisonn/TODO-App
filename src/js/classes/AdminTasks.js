@@ -9,17 +9,19 @@ export class AdminTasks {
 
   addTask(task) {
     this.tasks = [...this.tasks, task];
+    new Notification({ text: '¡Tarea añadida!', type: 'success' });
     this.renderTasks();
   }
 
   editTask(updatedTask) {
     this.tasks = this.tasks.map(task => task.id === updatedTask.id ? updatedTask : task);
+    new Notification({ text: 'Tarea Actualizada Correctamente', type: 'success' });
     this.renderTasks();
   }
 
   deleteTask(id) {
     this.tasks = this.tasks.filter(task => task.id !== id);
-    new Notification({ text: 'Tarea eliminada correctamente', type: 'success' });
+    new Notification({ text: 'Tarea Eliminada correctamente', type: 'success' });
     this.renderTasks();
   }
 
@@ -28,10 +30,20 @@ export class AdminTasks {
       divUserTasks.removeChild(divUserTasks.firstChild);
     }
 
-    if (this.tasks.length === 0) return divUserTasks.innerHTML = '<p class="no-tasks-p">Sin tareas pendientes</p>';
+    if (this.tasks.length === 0) return divUserTasks.setHTMLUnsafe('<p class="no-tasks-p">Sin tareas pendientes</p>');
+
+    //const divFilterBy = document.createElement('div');
+    //divFilterBy.classList.add('div-filter-by-container');
+    //divFilterBy.setHTMLUnsafe(`
+    //  <div>
+    //    <p class="filter-p">Filtar por priordiad</p>
+    //  </div>
+    //`);
+
+    divUserTasks.appendChild(divFilterBy);
 
     this.tasks.forEach(taskObj => {
-      const { id, task } = taskObj;
+      const { id, task, priority } = taskObj;
 
       const divShowTasks = document.createElement('div'); // Main Container
       divShowTasks.classList.add('div-show-tasks');
@@ -39,6 +51,7 @@ export class AdminTasks {
       const formattedTask = task.replace(/^\w/, character => character.toUpperCase());
       const userTask = document.createElement('p');
       userTask.classList.add('user-task');
+      //userTask.dataset.priority = priority
       userTask.innerHTML = `Pendiente: <span class="primary-color user-task-span">${formattedTask}</span>`;
 
       const userDivBtns = document.createElement('div'); // Buttons Container
