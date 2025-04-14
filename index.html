@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="src/css/normalize.css">
   <link rel="preload" href="src/css/styles.css" as="style">
   <link rel="stylesheet" href="src/css/styles.css">
+  <script type="module" src="src/js/main.js"></script>
 </head>
 
 <body>
@@ -24,6 +25,22 @@
         <h2 class="subtitle">Añade <span class="primary-color ">tareas</span> aquí</h2>
         <form id="form" class="form">
           <input type="text" id="input-task" placeholder="Sacar a mi perro...">
+
+          <h2 class="subtitle">Selecciona una <span class="primary-color">prioridad</span></h2>
+          <div class="div-select-priority-container">
+            <div class="priority-field">
+              <label for="low-priority">Baja</label>
+              <input id="low-priority" type="radio" name="task-priority" value="low" checked>
+            </div>
+            <div class="priority-field">
+              <label for="medium-priority">Media</label>
+              <input id="medium-priority" type="radio" name="task-priority" value="medium">
+            </div>
+            <div class="priority-field">
+              <label for="hight-priority">Alta</label>
+              <input id="hight-priority" type="radio" name="task-priority" value="hight">
+            </div>
+          </div>
           <button id="btn-add-tasks" class="btn-add-tasks" type="submit">Añadir</button>
         </form>
       </div>
@@ -40,7 +57,6 @@
   <footer>
     <p>Made with ❤️ by </p><a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>
   </footer>
-  <script type="module" src="src/js/main.js"></script>
 </body>
 
 </html>
