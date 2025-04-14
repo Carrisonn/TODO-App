@@ -5,42 +5,36 @@ import { inputTask, tasksObj, form, btnAddTasks } from './main.js';
 const adminTasksInstance = new AdminTasks();
 let editTask = false;
 
-export function valueToObject(event) {
+export function readTaskValue(event) {
   tasksObj.task = event.target.value.trim().toLowerCase();
 };
+
+export function readTaskPriorityValue(event) {
+  tasksObj.priority = event.target.value;
+}
 
 export function submitForm(event) {
   event.preventDefault();
 
-  if (tasksObj.task === '') return new Notification({ text: 'El campo no puede estar vacío', type: 'error' });
+  if (tasksObj.task === '') return new Notification({ text: 'Debes añadir una tarea', type: 'error' });
 
   editTask ? editUserTaskToHTML() : addUserTaskToHTML();
-
-  form.reset();
   editTask = false;
+  form.reset();
 };
 
 function addUserTaskToHTML() {
   adminTasksInstance.addTask({ ...tasksObj });
-  new Notification({ text: '¡Tarea añadida!', type: 'success' });
 
   // Reset the object to prevent the user to add the same task multiple times
-  Object.assign(tasksObj, {
-    id: generateId(),
-    task: ''
-  });
+  Object.assign(tasksObj, { id: generateId(), task: '' });
 };
 
 function editUserTaskToHTML() {
   adminTasksInstance.editTask({ ...tasksObj });
-  new Notification({ text: 'Tarea Actualizada Correctamente', type: 'success' });
 
   // Reset the object to prevent the user to update the same task multiple times
-  Object.assign(tasksObj, {
-    id: generateId(),
-    task: ''
-  });
-
+  Object.assign(tasksObj, { id: generateId(), task: '' });
   btnAddTasks.textContent = 'Añadir';
 };
 
