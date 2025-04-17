@@ -16,7 +16,9 @@ export function readTaskPriorityValue(event) {
 export function submitForm(event) {
   event.preventDefault();
 
-  if (tasksObj.task === '') return new Notification({ text: 'Debes añadir una tarea', type: 'error' });
+  const { task, priority } = tasksObj;
+  const isInvalidTask = task === '' || priority === '';
+  if (isInvalidTask) return new Notification({ text: 'Debes rellenar los campos', type: 'error' });
 
   editTask ? editUserTaskToHTML() : addUserTaskToHTML();
   editTask = false;
@@ -25,16 +27,12 @@ export function submitForm(event) {
 
 function addUserTaskToHTML() {
   adminTasksInstance.addTask({ ...tasksObj });
-
-  // Reset the object to prevent the user to add the same task multiple times
-  Object.assign(tasksObj, { id: generateId(), task: '' });
+  Object.assign(tasksObj, { id: generateId(), task: '', priority: '' });// Reset the object to prevent the user to add the same task multiple times
 };
 
 function editUserTaskToHTML() {
   adminTasksInstance.editTask({ ...tasksObj });
-
-  // Reset the object to prevent the user to update the same task multiple times
-  Object.assign(tasksObj, { id: generateId(), task: '' });
+  Object.assign(tasksObj, { id: generateId(), task: '', priority: '' }); // Reset the object to prevent the user to update the same task multiple times
   btnAddTasks.textContent = 'Añadir';
 };
 
@@ -46,6 +44,5 @@ export function updateTaskObj(cloneObj) {
 };
 
 export function generateId() {
-  const generateID = new Date().getTime();
-  return generateID;
+  return new Date().getTime();
 };
