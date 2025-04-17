@@ -7,9 +7,12 @@
 
   --bodyColor: hsl(0, 0%, 95%);
   --formColor: hsl(0, 0%, 90%);
+  --cardColor: hsl(268, 33%, 84%);
+  --borderCardColor: hsl(267, 30%, 52%);
 
   --primaryColor: hsl(258, 100%, 50%);
   --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 0%);
 
   --successNotification: hsl(120, 100%, 35%);
   --errorNotification: hsl(0, 100%, 50%);
@@ -182,16 +185,28 @@ main {
 }
 
 .div-show-tasks {
-  background-color: hsl(155, 100%, 95%);
-  border: 1px solid hsl(155, 100%, 25%);
+  background-color: var(--cardColor);
+  border: 1px solid var(--borderCardColor);
   border-radius: .5rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.user-task {
+.div-user-tasks-priority {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+}
+
+.user-info {
   font-size: var(--font-size-p);
-  padding: 2rem;
+  background-color: var(--formColor);
+  border: 1px solid var(--blackColor);
+  border-radius: .5rem;
+  padding: 1rem;
   margin: 0;
 }
 
@@ -203,7 +218,6 @@ main {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
-  padding: 1rem;
 }
 
 .btn-task {
