@@ -49,7 +49,7 @@ export class AdminTasks {
       userDivTasksPriority.classList.add('div-user-tasks-priority');
       userDivTasksPriority.setHTMLUnsafe(`
         <p class="user-info">Pendiente: <span class="primary-color user-task-span">${formattedTask}</span></p>
-        <p class="user-info">Prioridad: <span class="primary-color user-task-span">${priority}</span></p>
+        <p class="user-info">Prioridad: <span class="primary-color user-task-span">${this.dictPriority(priority)}</span></p>
       `);
 
       const userDivBtns = document.createElement('div'); // Buttons Container
@@ -74,5 +74,17 @@ export class AdminTasks {
 
       divUserTasks.appendChild(divShowTasks); // Add main container to the html static container
     })
+  }
+
+  dictPriority(priority) {
+    const dictPriority = {
+      low: 'Baja',
+      medium: 'Media',
+      high: 'Alta'
+    }
+
+    for (const [key, value] of Object.entries(dictPriority)) {
+      if (priority === key) return value;
+    }
   }
 };
